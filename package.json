@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "nmsfr-frontend",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -22,14 +22,12 @@
     "new-interface": "yo ng2-webpack:interface",
     "new-pipe": "yo ng2-webpack:pipe",
     "new-service": "yo ng2-webpack:service",
-    "postinstall": "npm run webdriver-update && typings install",
+    "postinstall": "typings install",
     "predocker-server": "npm install --quiet",
     "predocker-start": "docker pull cmelion/generator-ng2-webpack:latest",
     "server": "json-server --watch json-server/db.json",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "watch": "webpack --watch --progress --profile",
-    "webdriver-start": "webdriver-manager start",
-    "webdriver-update": "webdriver-manager update"
+    "watch": "webpack --watch --progress --profile"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.3",
