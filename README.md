@@ -27,8 +27,10 @@ npm start
 `yo ng2-webpack:directive` : créer une directive
 
 `yo ng2-webpack:interface` : créer une interface
----
+
+
 `npm start` : démarre le serveur de tests
+
 `npm build` : build l'application
 
 _[Plus d'information](https://www.npmjs.com/package/generator-ng2-webpack)_
