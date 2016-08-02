@@ -68,7 +68,8 @@ module.exports = (function makeWebpackConfig() {
     config.entry = isTestEnv ? {} : {
         'hot-server': 'webpack/hot/dev-server',
         'vendor': ['./src/vendor.ts', 'webpack-hot-middleware/client'],
-        'app': ['./src/bootstrap.ts', 'webpack-hot-middleware/client'] // our angular app
+        'app': ['./src/bootstrap.ts', 'webpack-hot-middleware/client'], // our angular app
+        'bootstrap-loader': ['bootstrap-loader', 'app']
     };
 
     /**
@@ -170,16 +171,6 @@ module.exports = (function makeWebpackConfig() {
         postLoaders: [],
         noParse: [/.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/, /angular2-polyfills\.js/]
     };
-
-    if (isTestEnv) {
-        // instrument only testing sources with Istanbul, covers js compiled files for now :-/
-        config.module.postLoaders.push({
-            test: /\.(js|ts)$/,
-            include: path.resolve('src'),
-            loader: 'istanbul-instrumenter-loader',
-            exclude: [/\.?spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
-        });
-    }
 
     /**
      * Plugins
