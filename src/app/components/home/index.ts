@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {FORM_DIRECTIVES} from '@angular/common';
 
 import {Publication} from '../../services/publication';
 
+import {Pov} from './directives/pov.directive';
+
 @Component({
   selector: 'home',
-  directives: [...FORM_DIRECTIVES],
+  directives: [Pov],
   providers: [Publication],
   pipes: [],
   styles: [require('./style.scss')],
