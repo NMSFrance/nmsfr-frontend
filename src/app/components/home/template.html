@@ -4,8 +4,23 @@
       [style.background-image]="'url(' + topPublication.file + ')'"
       pov >
 </div>
-<ul class="publications list-inline">
-  <li *ngFor="let publication of publications" class="publication list-group-item">
-    <img src="{{ publication.file }}"/>
-  </li>
-</ul>
+<div class="publications">
+  <div *ngFor="let publication of publications" class="publication">
+    <div class="picture" [style.background-image]="'url(' + publication.file + ')'">
+      <img src="{{ publication.file }}"/>
+    </div>
+    <div class="info">
+      <div class="stats">
+        <div class="stats-left">
+          <i class="glyphicon glyphicon-thumbs-up"></i>&nbsp;{{ publication.like }}
+        </div>
+        <div class="stats-right">
+          <i class="glyphicon glyphicon-eye-open"></i>&nbsp;{{ publication.view }}
+        </div>
+      </div>
+      <p class="title">{{ publication.title }}</p>
+      <p class="author">Par {{ publication.author }}</p>
+      <p>{{ publication.description }}</p>
+    </div>
+  </div>
+</div>

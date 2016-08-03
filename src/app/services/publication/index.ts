@@ -21,7 +21,7 @@ export class Publication {
   }
 
   getTopPublication(): Observable<Publication> {
-    return this.http.get(this.publicationUri.concat('/4'))
+    return this.http.get(this.publicationUri.concat('/5'))
             .map(res => res.json());
   }
 }

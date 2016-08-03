@@ -22,8 +22,6 @@ export class Pov {
     let positionX = (centerX - mouseX) * 0.4 - (centerX / 2);
     let positionY = (mouseY + (1080 * 0.2)) * -1;
 
-    console.log(centerX, mouseX, positionX);
-
     element.style.backgroundPositionX = positionX + 'px';
     element.style.backgroundPositionY = positionY + 'px';
   }

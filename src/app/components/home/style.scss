@@ -1,3 +1,5 @@
+@import "../../../style/_variables";
+
 // component styles are encapsulated and only applied to their components
 * {
 
@@ -10,16 +12,83 @@
   background-size: 1920px 1080px;
   background-position: center;
   transition: background-position 0.75s ease-out;
+  margin-bottom: 15px;
 }
 
 .publications {
+	column-count: 5;
+	column-gap: 15px;
+	column-fill: auto;
+  column-width: 200px;
   .publication {
-    margin: 15px;
-    border: none;
+    display: inline-block;
+  	column-break-inside: avoid;
+    margin-top: 10px;
+    overflow: hidden;
+    .picture {
+      background-repeat: no-repeat;
+      background-size: calc(100% + 10%);
+      -webkit-background-size: calc(100% + 10%);
+      background-position: center;
+      transition: background-size 0.45s ease-out;
+    }
+    .picture:hover {
+      background-size: 100%;
+      -webkit-background-size: 100%;
+    }
+    // allow to size the parent div
+    .picture img {
+      visibility: hidden;
+    }
     img {
       width: 100%;
-      max-width: 250px;
       height: auto;
     }
+    .info {
+      height: auto;
+      border: 1px solid lighten($color-inactive, 30%);
+      border-top: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .info .stats {
+      position: relative;
+      font-size: 1.4em;
+      line-height: 50px;
+      height: 50px;
+      display: block;
+      width: 100%;
+    }
+    .info .stats .stats-left {
+      position: absolute;
+      left: 0;
+    }
+    .info .stats .stats-right {
+      position: absolute;
+      right: 0;
+    }
+    .info .title {
+      font-size: 1.4em;
+    }
+    .info .author {
+      font-size: 0.9em;
+      font-style: italic;
+    }
+    .info p {
+      display: inline-block;
+      text-align: justify;
+    }
   }
+}
+
+@media (min-width: 960px) {
+	.publications {
+		column-count: 4;
+	}
+}
+
+@media (min-width: 1100px) {
+	.publications {
+		column-count: 5;
+	}
 }
