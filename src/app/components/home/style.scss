@@ -14,6 +14,9 @@
   transition: background-position 0.75s ease-out;
   margin-bottom: 15px;
 }
+#top-publication:hover {
+  cursor: url('img/cursor.png') 25 15, pointer;
+}
 
 .publications {
 	column-count: 5;
