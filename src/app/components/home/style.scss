@@ -6,7 +6,6 @@
 #top-publication {
   width: 100%;
   height: 375px;
-  background-color: yellow;
   img {
     width: auto;
     height: 100%;
@@ -16,9 +15,11 @@
 .publications {
   .publication {
     margin: 15px;
+    border: none;
     img {
-      width: 175px;
-      height: 175px;
+      width: 100%;
+      max-width: 250px;
+      height: auto;
     }
   }
 }
