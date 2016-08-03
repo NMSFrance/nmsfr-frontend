@@ -14,15 +14,20 @@ import {Publication} from '../../services/publication';
 
 export class Home implements OnInit {
   publications: Publication[];
+  topPublication: Publication;
 
-  constructor(public publication: Publication) {
+  constructor(public publiService: Publication) {
     // Do stuff
   }
 
   ngOnInit() {
-    this.publication.getPublications()
+    this.publiService.getPublications()
       .subscribe(
-        publications => { this.publications = publications; console.log(this.publications); }
+        publications => this.publications = publications
+      );
+    this.publiService.getTopPublication()
+      .subscribe(
+        publication => this.topPublication = publication
       );
   }
 

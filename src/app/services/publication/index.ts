@@ -19,4 +19,9 @@ export class Publication {
     return this.http.get(this.publicationUri)
             .map(res => res.json());
   }
+
+  getTopPublication(): Observable<Publication> {
+    return this.http.get(this.publicationUri.concat('/2'))
+            .map(res => res.json());
+  }
 }

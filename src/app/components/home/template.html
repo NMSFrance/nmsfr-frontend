@@ -1,5 +1,4 @@
-<div id="top-publication" class="container">
-  <img src="publications[0].file" />
+<div *ngIf="topPublication" id="top-publication" class="container" [style.background-image]="'url(' + topPublication.file + ')'">
 </div>
 <ul class="publications list-inline">
   <li *ngFor="let publication of publications" class="publication list-group-item">

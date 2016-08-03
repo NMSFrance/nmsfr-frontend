@@ -8,9 +8,11 @@
 }
 
 header {
+  position: fixed;
+  z-index: 10;
   background-color: $color-base;
-  height: 100px;
-  max-height: 100px;
+  height: $size-header-height;
+  max-height: $size-header-height;
   width: 100%;
   border-bottom: 1px solid $color-active;
   #drag-box {
@@ -27,7 +29,8 @@ header {
 }
 
 main {
-
+  padding-top: $size-header-height;
+  margin-top: 15px;
 }
 
 footer {
