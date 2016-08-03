@@ -1,15 +1,43 @@
 {
-    "items": [{
-        "id": 3,
-        "name": "Item 3",
-        "description": "This is a lovely item"
-    }, {
-        "id": 5,
-        "name": "Item 2",
-        "description": "Item 2 description"
-    }, {
-        "name": "test",
-        "description": "test description",
-        "id": 6
-    }]
+  "publications": [{
+    "id": 1,
+    "type": "IMAGE",
+    "file": "http://i.telegraph.co.uk/multimedia/archive/03589/Wellcome_Image_Awa_3589699k.jpg",
+    "title": "Ceci est une image - Yop",
+    "description": "Get a full fake REST API with zero coding in less than 30 seconds (seriously)",
+    "created_at": "...",
+    "author": "Slals"
+  }, {
+    "id": 2,
+    "type": "IMAGE",
+    "file": "http://img.clubic.com/08456222-photo-no-man-s-sky.jpg",
+    "title": "Up Derp Nerp, kek",
+    "description": "WhatsApp est l’entreprise de communication à la croissance la plus rapide au monde avec plus d’un milliard d’utilisateurs actifs dans le monde entier. Nous aidons à rassembler les amis, familles, communautés, groupes de football, médecins, parachutistes et des millions d’autres.",
+    "created_at": "...",
+    "author": "Roland"
+  }, {
+    "id": 3,
+    "type": "VIDEO",
+    "file": "",
+    "title": "https://www.youtube.com/watch?v=MF3WXRr_bqk",
+    "description": "On Thursday August 25th, LA-based User Experience Strategist Jaime Levy will combine forces with Justinmind to offer a workshop on design hacking innovative concepts into prototypes.",
+    "created_at": "...",
+    "author": "Slals"
+  }, {
+    "id": 4,
+    "type": "IMAGE",
+    "file": "https://cdn3.vox-cdn.com/thumbor/ZC9EPRa9FCPjxdHZzn1zBysXWto=/cdn0.vox-cdn.com/uploads/chorus_asset/file/6272905/no-mans-sky-screenshot-02_1920.0.jpg",
+    "title": "Encore une nouvelle image... Eheh",
+    "description": "Follow No Man's Sky, and we'll let you know when we have any news, trailers, or screenshots.",
+    "created_at": "...",
+    "author": "Lululala"
+  }, {
+    "id": 5,
+    "type": "VIDEO",
+    "file": "",
+    "title": "https://www.youtube.com/watch?v=JBDjb9980ps",
+    "description": "",
+    "created_at": "...",
+    "author": "Crocodile"
+  }]
 }

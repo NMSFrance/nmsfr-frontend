@@ -1,6 +1,6 @@
 /// <reference path="../typings/main.d.ts"/>
 import 'ts-helpers';
-import {enableProdMode} from '@angular/core';
+import {enableProdMode, provide} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {ELEMENT_PROBE_PROVIDERS} from '@angular/platform-browser';
 import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
@@ -21,6 +21,11 @@ if (process.env.ENV === 'prod') {
 import {App} from './app/index';
 
 /*
+ * Variables to inject
+ */
+let apiEndpoint = 'http://localhost:3000';
+
+/*
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection
  */
@@ -29,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function main() {
         // These are dependencies of our App
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
-        ...ENV_PROVIDERS
+        ...ENV_PROVIDERS,
+        provide('API', {useValue: apiEndpoint})
     ])
         .catch(err => console.error(err));
 });
@@ -53,7 +59,8 @@ if (module.hot) {
     bootstrap(App, [
         ...ENV_PROVIDERS,
         ...HTTP_PROVIDERS,
-        ...ROUTER_PROVIDERS
+        ...ROUTER_PROVIDERS,
+        provide('API', {useValue: apiEndpoint})
     ])
         .catch(err => console.error(err));
 
