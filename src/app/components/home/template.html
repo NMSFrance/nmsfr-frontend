@@ -1,26 +1,32 @@
-<div  *ngIf="topPublication"
-      id="top-publication"
-      class="container"
-      [style.background-image]="'url(' + topPublication.file + ')'"
-      pov >
-</div>
-<div class="publications">
-  <div *ngFor="let publication of publications" class="publication">
-    <div class="picture" [style.background-image]="'url(' + publication.file + ')'">
-      <img src="{{ publication.file }}"/>
-    </div>
-    <div class="info">
-      <div class="stats">
-        <div class="like">
-          <i [class.active]="publication.has_like" (click)="likeAction(publication)" class="glyphicon glyphicon-thumbs-up"></i>&nbsp;{{ publication.like }}
-        </div>
-        <div class="view">
-          <i class="glyphicon glyphicon-eye-open"></i>&nbsp;{{ publication.view }}&nbsp;vues
-        </div>
+<div  class="col-md-12"
+      infinite-scroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="200"
+      (scrolled)="onScroll()" >
+  <div  *ngIf="topPublication"
+        id="top-publication"
+        class="container"
+        [style.background-image]="'url(' + topPublication.file + ')'"
+        pov >
+  </div>
+  <div class="publications">
+    <div *ngFor="let publication of publications" class="publication">
+      <div class="picture" [style.background-image]="'url(' + publication.file + ')'">
+        <img src="{{ publication.file }}"/>
       </div>
-      <p class="title">{{ publication.title }}</p>
-      <p class="author">Par {{ publication.author }}</p>
-      <p>{{ publication.description }}</p>
+      <div class="info">
+        <div class="stats">
+          <div class="like">
+            <i [class.active]="publication.has_like" (click)="likeAction(publication)" class="glyphicon glyphicon-thumbs-up"></i>&nbsp;{{ publication.like }}
+          </div>
+          <div class="view">
+            <i class="glyphicon glyphicon-eye-open"></i>&nbsp;{{ publication.view }}&nbsp;vues
+          </div>
+        </div>
+        <p class="title">{{ publication.title }}</p>
+        <p class="author">Par {{ publication.author }}</p>
+        <p>{{ publication.description }}</p>
+      </div>
     </div>
   </div>
 </div>

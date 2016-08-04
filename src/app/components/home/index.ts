@@ -4,10 +4,11 @@ import {PublicationService} from '../../services/publication';
 import {Publication} from '../../interfaces/publication.interface';
 
 import {Pov} from './directives/pov.directive';
+import {InfiniteScroll} from 'angular2-infinite-scroll';
 
 @Component({
   selector: 'home',
-  directives: [Pov],
+  directives: [Pov, InfiniteScroll],
   providers: [PublicationService],
   pipes: [],
   styles: [require('./style.scss')],
@@ -53,6 +54,10 @@ export class Home implements OnInit {
           }
         );
     }
+  }
+
+  onScroll(): void {
+    console.log('scroll');
   }
 
 }
