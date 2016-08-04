@@ -20,7 +20,7 @@ export class Home implements OnInit {
   topPublication: Publication;
 
   constructor(public publiService: PublicationService) {
-    // Do stuff
+
   }
 
   ngOnInit() {
@@ -39,7 +39,6 @@ export class Home implements OnInit {
       this.publiService.unlike(p)
         .subscribe(
           res => {
-            console.log('unlike');
             --p.like;
             p.has_like = false;
           }
@@ -48,7 +47,6 @@ export class Home implements OnInit {
       this.publiService.like(p)
         .subscribe(
           res => {
-            console.log('like');
             ++p.like;
             p.has_like = true;
           }
@@ -57,7 +55,14 @@ export class Home implements OnInit {
   }
 
   onScroll(): void {
-    console.log('scroll');
+    this.publiService.getPublications(this.publications.length)
+      .subscribe(
+        publications => {
+          for(var publication of publications) {
+            this.publications.push(publication);
+          }
+        }
+      );
   }
 
 }

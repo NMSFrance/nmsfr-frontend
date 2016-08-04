@@ -2,12 +2,9 @@
 
 @import "_variables";
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   background-color: $color-base;
-}
-
-a {
-
+  height: 100%;
 }

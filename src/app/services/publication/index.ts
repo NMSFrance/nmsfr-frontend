@@ -1,14 +1,15 @@
 /* beautify ignore:start */
 import {Injectable, Inject} from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import {Http, Headers, RequestOptions, URLSearchParams} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import {Publication} from '../../interfaces/publication.interface'
+import {Publication} from '../../interfaces/publication.interface';
 /* beautify ignore:end */
 
 @Injectable()
 export class PublicationService {
   private publicationUri: string;
   private likeUri: string;
+  private limit: number;
 
   constructor(
     @Inject('API') private api: string,
@@ -16,15 +17,21 @@ export class PublicationService {
   ) {
     this.publicationUri = api.concat('/publications');
     this.likeUri = api.concat('/likes');
+    this.limit = 4;
   }
 
-  getPublications(): Observable<Publication[]> {
-    return this.http.get(this.publicationUri)
+  getPublications(start = 0): Observable<Publication[]> {
+    let params: URLSearchParams = new URLSearchParams();
+
+    params.set('_start', String(start));
+    params.set('_end', String(this.limit + start));
+
+    return this.http.get(this.publicationUri, {search: params})
             .map(res => res.json());
   }
 
   getTopPublication(): Observable<Publication> {
-    return this.http.get(this.publicationUri.concat('/5'))
+    return this.http.get(this.publicationUri.concat('/3'))
             .map(res => res.json());
   }
 

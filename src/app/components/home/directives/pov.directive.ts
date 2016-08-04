@@ -6,21 +6,24 @@ import {Directive, ElementRef, Renderer, HostListener} from '@angular/core';
   selector: '[pov]'
 })
 export class Pov {
+  private oobX: number;
+  private oobY: number;
 
   constructor(private el: ElementRef, private renderer: Renderer) {
-
+    this.oobX = -1600 / 2;
+    this.oobY = -1080 / 2;
   }
 
   @HostListener('mousemove', ['$event']) onMousemove(event: MouseEvent) {
     let element = this.el.nativeElement;
-    let mouseX = event.pageX - element.offsetLeft;
-    let mouseY = event.pageY - element.offsetTop;
 
-    let centerX = element.offsetLeft + element.offsetWidth / 2;
+    let mouseX = event.layerX - element.offsetLeft;
+    let mouseY = event.layerY - element.offsetTop;
 
-    // TODO calculate image size
-    let positionX = (centerX - mouseX) * 0.4 - (centerX / 2);
-    let positionY = (mouseY + (1080 * 0.2)) * -1;
+    let positionX = this.oobX + mouseX;
+    let positionY = this.oobY + mouseY;
+
+    if(positionX > 0) positionX = 0;
 
     element.style.backgroundPositionX = positionX + 'px';
     element.style.backgroundPositionY = positionY + 'px';

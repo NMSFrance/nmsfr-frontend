@@ -1,7 +1,7 @@
-<div  class="col-md-12"
+<div  class="publications-show col-md-12"
       infinite-scroll
-      [infiniteScrollDistance]="2"
-      [infiniteScrollThrottle]="200"
+      [infiniteScrollDistance]="0"
+      [infiniteScrollThrottle]="500"
       (scrolled)="onScroll()" >
   <div  *ngIf="topPublication"
         id="top-publication"
