@@ -28,6 +28,7 @@
   	column-break-inside: avoid;
     margin-top: 10px;
     overflow: hidden;
+    cursor: pointer;
     .picture {
       background-repeat: no-repeat;
       background-size: calc(100% + 10%);
@@ -53,6 +54,7 @@
       border-top: 0;
       padding-left: 10px;
       padding-right: 10px;
+      transition: border 0.25s;
     }
     .info .stats {
       position: relative;
@@ -65,6 +67,9 @@
     .info .stats .like {
       position: absolute;
       left: 0;
+    }
+    .info .stats i {
+      padding: 1px;
     }
     .info .stats .like i {
       opacity: 1;
@@ -95,6 +100,11 @@
     .info p {
       display: inline-block;
       text-align: justify;
+    }
+  }
+  .publication:hover {
+    .info {
+      border-color: $color-active;
     }
   }
 }
