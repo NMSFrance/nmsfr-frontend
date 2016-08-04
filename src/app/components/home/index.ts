@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {PublicationService} from '../../services/publication';
-import {Publication} from '../../interfaces/publication.interface'
+import {Publication} from '../../interfaces/publication.interface';
 
 import {Pov} from './directives/pov.directive';
 
@@ -33,15 +33,26 @@ export class Home implements OnInit {
       );
   }
 
-  like(p: Publication) {
-    ++p.like;
-    /*this.publiService.like(pId)
-      .subscribe(
-        res => {
-          publication.id += 1;
-          publication.has_like = true;
-        }
-      );*/
+  likeAction(p: Publication) {
+    if(p.has_like) {
+      this.publiService.unlike(p)
+        .subscribe(
+          res => {
+            console.log('unlike');
+            --p.like;
+            p.has_like = false;
+          }
+        );
+    } else {
+      this.publiService.like(p)
+        .subscribe(
+          res => {
+            console.log('like');
+            ++p.like;
+            p.has_like = true;
+          }
+        );
+    }
   }
 
 }

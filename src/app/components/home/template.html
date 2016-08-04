@@ -12,7 +12,7 @@
     <div class="info">
       <div class="stats">
         <div class="like">
-          <i (click)="like(publication)" class="glyphicon glyphicon-thumbs-up"></i>&nbsp;{{ publication.like }}
+          <i [class.active]="publication.has_like" (click)="likeAction(publication)" class="glyphicon glyphicon-thumbs-up"></i>&nbsp;{{ publication.like }}
         </div>
         <div class="view">
           <i class="glyphicon glyphicon-eye-open"></i>&nbsp;{{ publication.view }}&nbsp;vues
