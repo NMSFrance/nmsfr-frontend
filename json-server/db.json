@@ -8,7 +8,8 @@
     "created_at": "...",
     "author": "Slals",
     "like": "10",
-    "view": "301"
+    "view": "301",
+    "has_like": "false"
   }, {
     "id": 2,
     "type": "IMAGE",
@@ -18,7 +19,8 @@
     "created_at": "...",
     "author": "Roland",
     "like": "101",
-    "view": "3010"
+    "view": "3010",
+    "has_like": "false"
   }, {
     "id": 3,
     "type": "VIDEO",
@@ -28,7 +30,8 @@
     "created_at": "...",
     "author": "Slals",
     "like": "1001",
-    "view": "9999"
+    "view": "9999",
+    "has_like": "false"
   }, {
     "id": 4,
     "type": "IMAGE",
@@ -38,7 +41,8 @@
     "created_at": "...",
     "author": "Lululala",
     "like": "12500",
-    "view": "0"
+    "view": "0",
+    "has_like": "false"
   }, {
     "id": 5,
     "type": "VIDEO",
@@ -48,7 +52,8 @@
     "created_at": "...",
     "author": "Crocodile",
     "like": "0",
-    "view": "901"
+    "view": "901",
+    "has_like": "false"
   }, {
     "id": 6,
     "type": "IMAGE",
@@ -58,7 +63,8 @@
     "created_at": "...",
     "author": "Lululala",
     "like": "12500",
-    "view": "1"
+    "view": "1",
+    "has_like": "true"
   }, {
     "id": 7,
     "type": "VIDEO",
@@ -68,7 +74,8 @@
     "created_at": "...",
     "author": "Crocodile",
     "like": "0",
-    "view": "3"
+    "view": "3",
+    "has_like": "true"
   }, {
     "id": 8,
     "type": "VIDEO",
@@ -78,7 +85,8 @@
     "created_at": "...",
     "author": "Slals",
     "like": "1001",
-    "view": "1"
+    "view": "1",
+    "has_like": "false"
   }, {
     "id": 9,
     "type": "IMAGE",
@@ -88,6 +96,7 @@
     "created_at": "...",
     "author": "Lululala",
     "like": "12500",
-    "view": "475"
+    "view": "475",
+    "has_like": "true"
   }]
 }

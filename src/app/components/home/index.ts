@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Publication} from '../../services/publication';
+import {PublicationService} from '../../services/publication';
+import {Publication} from '../../interfaces/publication.interface'
 
 import {Pov} from './directives/pov.directive';
 
 @Component({
   selector: 'home',
   directives: [Pov],
-  providers: [Publication],
+  providers: [PublicationService],
   pipes: [],
   styles: [require('./style.scss')],
   template: require('./template.html')
@@ -17,7 +18,7 @@ export class Home implements OnInit {
   publications: Publication[];
   topPublication: Publication;
 
-  constructor(public publiService: Publication) {
+  constructor(public publiService: PublicationService) {
     // Do stuff
   }
 
@@ -30,6 +31,17 @@ export class Home implements OnInit {
       .subscribe(
         publication => this.topPublication = publication
       );
+  }
+
+  like(p: Publication) {
+    ++p.like;
+    /*this.publiService.like(pId)
+      .subscribe(
+        res => {
+          publication.id += 1;
+          publication.has_like = true;
+        }
+      );*/
   }
 
 }
