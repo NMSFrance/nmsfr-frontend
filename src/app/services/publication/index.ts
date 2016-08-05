@@ -17,7 +17,7 @@ export class PublicationService {
   ) {
     this.publicationUri = api.concat('/publications');
     this.likeUri = api.concat('/likes');
-    this.limit = 4;
+    this.limit = 9;
   }
 
   getPublications(start = 0): Observable<Publication[]> {
