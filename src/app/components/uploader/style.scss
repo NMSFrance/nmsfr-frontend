@@ -1,0 +1,25 @@
+@import "../../../style/_variables";
+
+#drag-box {
+  position: relative;
+  vertical-align: top;
+  height: calc(100% + 1px);
+  width: 400px;
+  border-bottom: 1px dashed $color-active;
+  border-left: 1px dashed $color-active;
+  border-right: 1px dashed $color-active;
+  background-color: lighten($color-active, 21%);
+  margin: auto;
+  margin-bottom: -1px;
+  font-family: 'nms';
+  p, h3 {
+    margin: 0;
+    text-transform: uppercase;
+    color: $color-active;
+    text-align: center;
+  }
+  h3 {
+    padding-top: 10px;
+    line-height: 50px;
+  }
+}

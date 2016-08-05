@@ -18,3 +18,4 @@ import 'rxjs';
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
 import 'angular2-infinite-scroll';
+import 'ng2-file-upload';
