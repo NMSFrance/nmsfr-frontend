@@ -1,4 +1,35 @@
-<p>
-  Home Works, oh yeah baby!
-</p>
-
+<div  class="publications-show col-md-12"
+      infinite-scroll
+      [infiniteScrollDistance]="0"
+      [infiniteScrollThrottle]="500"
+      (scrolled)="onScroll()" >
+  <div  *ngIf="topPublication"
+        id="top-publication"
+        class="container"
+        [style.background-image]="'url(' + topPublication.file + ')'"
+        pov >
+  </div>
+  <div class="publications">
+    <div *ngFor="let publication of publications" class="publication">
+      <div class="picture" [style.background-image]="'url(' + publication.file + ')'">
+        <img src="{{ publication.file }}"/>
+      </div>
+      <div class="info">
+        <div class="stats">
+          <div class="like">
+            <i [class.active]="publication.has_like" (click)="likeAction(publication)" class="glyphicon glyphicon-thumbs-up"></i>&nbsp;{{ publication.like }}
+          </div>
+          <div class="view">
+            <i class="glyphicon glyphicon-eye-open"></i>&nbsp;{{ publication.view }}&nbsp;vues
+          </div>
+        </div>
+        <p class="title">{{ publication.title }}</p>
+        <p class="author">Par {{ publication.author }}</p>
+        <p>{{ publication.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 center-block">
+  <spinner [running]="loading"></spinner>
+</div>

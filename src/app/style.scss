@@ -1,3 +1,12 @@
+@import "../style/_variables";
+
+@font-face {
+  font-family: 'nms';
+  src: url('fonts/geonms-webfont.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 // styles applied on :host are applied on the current component, "app" in this case
 :host {
   display: flex;
@@ -6,30 +15,43 @@
 }
 
 header {
-  background-color: #4E274C;
-  padding: 16px;
   position: fixed;
-  top: 0;
-  left: 0;
+  z-index: 10;
+  background-color: $color-base;
+  height: $size-header-height;
+  max-height: $size-header-height;
   width: 100%;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid $color-active;
+  #drag-box {
+    position: relative;
+    vertical-align: top;
+    height: calc(100% + 1px);
+    width: 400px;
+    border-bottom: 1px dashed $color-active;
+    border-left: 1px dashed $color-active;
+    border-right: 1px dashed $color-active;
+    background-color: lighten($color-active, 21%);
+    margin: auto;
+    margin-bottom: -1px;
+    font-family: 'nms';
+    p, h3 {
+      margin: 0;
+      text-transform: uppercase;
+      color: $color-active;
+      text-align: center;
+    }
+    h3 {
+      padding-top: 10px;
+      line-height: 50px;
+    }
+  }
 }
 
 main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  flex: 1 0 auto;
+  padding-top: $size-header-height;
+  margin-top: 15px;
 }
 
 footer {
-  text-align: center;
-  font-size: 0.8em;
-  background-color: #2C102B;
-}
 
-.shield {
-  width: 750px;
-  height: 450px;
 }
