@@ -5,10 +5,11 @@ import {Publication} from '../../interfaces/publication.interface';
 
 import {Pov} from './directives/pov.directive';
 import {InfiniteScroll} from 'angular2-infinite-scroll';
+import {SpinnerComponent} from '../spinner';
 
 @Component({
   selector: 'home',
-  directives: [Pov, InfiniteScroll],
+  directives: [Pov, InfiniteScroll, SpinnerComponent],
   providers: [PublicationService],
   pipes: [],
   styles: [require('./style.scss')],
@@ -18,6 +19,7 @@ import {InfiniteScroll} from 'angular2-infinite-scroll';
 export class Home implements OnInit {
   publications: Publication[];
   topPublication: Publication;
+  loading: boolean;
 
   constructor(public publiService: PublicationService) {
 
@@ -55,13 +57,16 @@ export class Home implements OnInit {
   }
 
   onScroll(): void {
+    this.loading = true;
     this.publiService.getPublications(this.publications.length)
       .subscribe(
         publications => {
           for(var publication of publications) {
             this.publications.push(publication);
           }
-        }
+        },
+        err => console.log(err),
+        () => this.loading = false
       );
   }
 
