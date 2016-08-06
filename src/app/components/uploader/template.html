@@ -1,4 +1,9 @@
-<div id="drag-box">
+<div  id="drag-box" (click)="test()"
+      ng2FileDrop
+      [class.file-over]="hasDropZoneOver"
+      (fileOver)="fileOverDrop($event)"
+      uploader="uploaderTool">
+  <i class="glyphicon glyphicon-plus-sign"></i>
   <h3>glisser déposer</h3>
   <p>Partager – découvrir – échanger</p>
 </div>

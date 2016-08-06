@@ -5,6 +5,7 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
 import {ELEMENT_PROBE_PROVIDERS} from '@angular/platform-browser';
 import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {HTTP_PROVIDERS} from '@angular/http';
+import {MODAL_BROWSER_PROVIDERS} from 'angular2-modal/platform-browser';
 
 const ENV_PROVIDERS = [];
 // depending on the env mode, enable prod mode or add debugging modules
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function main() {
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
         ...ENV_PROVIDERS,
+        ...MODAL_BROWSER_PROVIDERS,
         provide('API', {useValue: apiEndpoint})
     ])
         .catch(err => console.error(err));
@@ -60,6 +62,7 @@ if (module.hot) {
         ...ENV_PROVIDERS,
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
+        ...MODAL_BROWSER_PROVIDERS,
         provide('API', {useValue: apiEndpoint})
     ])
         .catch(err => console.error(err));

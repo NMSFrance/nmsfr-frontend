@@ -1,10 +1,14 @@
 @import "../../../style/_variables";
 
+$box-width: 400px;
+$box-height: 100px;
+
 #drag-box {
   position: relative;
   vertical-align: top;
   height: calc(100% + 1px);
-  width: 400px;
+  width: $box-width;
+  height: $box-height;
   border-bottom: 1px dashed $color-active;
   border-left: 1px dashed $color-active;
   border-right: 1px dashed $color-active;
@@ -12,6 +16,33 @@
   margin: auto;
   margin-bottom: -1px;
   font-family: 'nms';
+  z-index: 10px;
+  &:hover {
+    cursor: pointer;
+    i {
+      display: inline-block;
+    }
+    p, h3 {
+      display: none;
+    }
+  }
+  &.file-over {
+    i {
+      display: inline-block;
+    }
+    p, h3 {
+      display: none;
+    }
+  }
+  i {
+    display: none;
+    width: $box-width;
+    line-height: $box-height;
+    text-align: center;
+    color: $color-active;
+    pointer-events: none;
+    font-size: 3em;
+  }
   p, h3 {
     margin: 0;
     text-transform: uppercase;
