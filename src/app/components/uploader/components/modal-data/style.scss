@@ -1,0 +1,26 @@
+@import "../../../../../style/_variables";
+
+#modal {
+  padding: 15px;
+  box-shadow: 0px 0px 5px #656565;
+  #modal-header {
+    width: 100%;
+    line-height: 45px;
+    padding: 5px;
+    margin: 0;
+    color: $color-active;
+    border-bottom: 1px solid $color-active;
+    margin-bottom: 20px;
+  }
+  #modal-preview img {
+    width: 250px;
+    height: auto;
+  }
+  textarea {
+    resize: none;
+  }
+}
+
+#modal-buttons {
+  padding: 15px 30px 15px 15px;
+}

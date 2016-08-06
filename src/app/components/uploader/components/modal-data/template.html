@@ -1,0 +1,18 @@
+<div id="modal" class="row">
+  <div class="col-md-12">
+    <h3 id="modal-header">Renseigne ta découverte !</h3>
+    <div id="modal-preview" class="col-md-6">
+      <img src="http://img0.mxstatic.com/wallpapers/f539b61e0efc3826c3a658822e355265_large.jpeg" />
+    </div>
+    <div class="col-md-6 form-group">
+      <input class="form-control" placeholder="Titre" value="{{ context.file }}"/><br />
+      <textarea class="form-control" rows="3" id="comment"></textarea>
+    </div>
+  </div>
+</div>
+<div id="modal-buttons" class="row">
+  <div class="col-md-12 text-right">
+    <button type="submit" class="btn btn-primary">Envoyer le rapport</button>
+    <button class="btn btn-danger" (click)="onClose()">Annuler</button>
+  </div>
+</div>

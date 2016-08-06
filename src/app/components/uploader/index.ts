@@ -2,6 +2,7 @@
 import {Component} from '@angular/core';
 import {FILE_UPLOAD_DIRECTIVES, FileUploader} from 'ng2-file-upload';
 import {Modal} from 'angular2-modal/plugins/bootstrap';
+import {ModalDataComponent, ModalData} from './components/modal-data';
 /* beautify ignore:end */
 
 @Component({
@@ -16,16 +17,9 @@ export class UploaderComponent {
 
   constructor(public modal: Modal) { }
 
-  test() {
-    this.modal.prompt()
-      .size('lg')
-      .isBlocking(true)
-      .showClose(true)
-      .keyboard(27)
-      .title('Reseigne ta découverte !')
-      .body('./template.html')
-      .okBtn('Envoyer le rapport')
-      .open();
+  openModal() {
+    this.modal
+      .open(ModalDataComponent, new ModalData('toto.jpg'));
   }
 
   fileOverDrop(e: any): void {
