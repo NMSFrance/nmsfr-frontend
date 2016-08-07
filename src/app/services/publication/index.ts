@@ -54,7 +54,6 @@ export class PublicationService {
 
   newPublication(p: Publication): Observable<Publication> {
     let body = JSON.stringify(p);
-    console.log(body);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

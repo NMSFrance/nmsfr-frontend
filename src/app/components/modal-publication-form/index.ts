@@ -1,10 +1,11 @@
 /* beautify ignore:start */
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass, NgStyle} from '@angular/common';
 import {PublicationService} from '../../services/publication';
 import {DialogRef, ModalComponent} from 'angular2-modal';
 import {FILE_UPLOAD_DIRECTIVES, FileUploader} from 'ng2-file-upload';
 import {BSModalContext} from 'angular2-modal/plugins/bootstrap/index';
+import {Charhunter} from '../../directives/charhunter.directive';
+import {CounterPipe} from '../../pipes/counter';
 /* beautify ignore:end */
 
 export class ModalPublicationData extends BSModalContext {
@@ -16,7 +17,8 @@ export class ModalPublicationData extends BSModalContext {
 @Component({
   selector: 'modal-data',
   providers: [PublicationService],
-  directives: [FILE_UPLOAD_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES],
+  directives: [FILE_UPLOAD_DIRECTIVES, Charhunter],
+  pipes: [CounterPipe],
   styles: [require('./style.scss')],
   template: require('./template.html')
 })
@@ -27,6 +29,8 @@ export class ModalPublicationFormComponent implements ModalComponent<ModalPublic
   publication: any;
   preview: any;
   isSelected: boolean;
+  txtAreaMaxLength: number;
+  txtTitleMaxLength: number;
 
   constructor(public dialog: DialogRef<ModalPublicationData>,
                 public publiService: PublicationService) {
@@ -35,6 +39,9 @@ export class ModalPublicationFormComponent implements ModalComponent<ModalPublic
       type: 'IMAGE'
     };
     this.isSelected = false;
+    this.preview = undefined;
+    this.txtAreaMaxLength = 250;
+    this.txtTitleMaxLength = 70;
 
     if(this.context.uploader.queue[0]) {
       this.file = this.context.uploader.queue[0]._file;

@@ -13,7 +13,6 @@
     padding: 5px;
     margin: 0;
     color: $color-active;
-    border-bottom: 1px solid $color-active;
     margin-bottom: 10px;
   }
   #modal-preview {
@@ -24,10 +23,22 @@
       height: auto;
     }
   }
-  .modal-form {
+  .select-button {
+    margin-bottom: 30px;
+  }
+  .message {
+    line-height: 50px;
+    background-color: lighten($color-active, 25%);
+    border-top: 1px solid $color-active;
+    border-bottom: 1px solid $color-active;
+    text-align: center;
+  }
+  #modal-form {
     padding: 0;
     textarea {
       resize: none;
+      height: 130px;
+      margin-top: 35px;
     }
   }
 }

@@ -1,26 +1,43 @@
 <div id="modal" class="row">
   <div class="col-md-12">
     <h3 id="modal-header">Renseigne ta découverte !</h3>
-    <label *ngIf="!context.uploader.queue[0]" [hidden]="isSelected" class="btn btn-default btn-file center-block">
+    <label *ngIf="!context.uploader.queue[0]" [hidden]="isSelected" class="btn btn-primary btn-file center-block select-button">
       Sélectionne ta photographie
       <input  (change)="onSelectFile($event.target)"
               type="file"
               ng2FileSelect
               [uploader]="context.uploader" />
-    </label><br />
-    <p *ngIf="context.uploader.isUploading">
+    </label>
+    <p *ngIf="context.uploader.isUploading" class="message">
       Rapport photographique en cours de transmission dans l'Atlas... {{ context.uploader.progress }}%
     </p>
-    <p *ngIf="context.uploader.queue[0]?.isSuccess">
-      Rapport enregistré dans l'Atlas, merci de renseigner votre découverte
+    <p *ngIf="context.uploader.queue[0]?.isSuccess" class="message">
+      Rapport enregistré dans l'Atlas, merci de renseigner ta découverte
     </p>
     <div id="modal-preview" class="col-md-6">
-      <img src="{{ preview?.result }}" />
+      <img *ngIf="preview" src="{{ preview?.result }}" />
+      <img *ngIf="!preview" src="img/placeholder.png" />
     </div>
-    <div class="col-md-6 form-group modal-form">
-      <input class="form-control" placeholder="Titre" [(ngModel)]="publication.title"/><br />
-      <textarea class="form-control" rows="3" id="comment" [(ngModel)]="publication.description">
+    <div id="modal-form" class="col-md-6 form-group">
+      <input  class="form-control"
+              placeholder="Titre de ton rapport"
+              [(ngModel)]="publication.title"
+              charhunter
+              [maxLength]="txtTitleMaxLength"
+              #txtTitle/>
+      <div class="pull-right">
+        {{ txtTitle.value.length | counter: txtTitleMaxLength }} / {{ txtTitleMaxLength }}
+      </div>
+      <textarea   class="form-control"
+                  placeholder="Décris ta découverte"
+                  [(ngModel)]="publication.description"
+                  charhunter
+                  [maxLength]="txtAreaMaxLength"
+                  #txtArea>
       </textarea>
+      <div class="pull-right">
+        {{ txtArea.value.length | counter: txtAreaMaxLength }} / {{ txtAreaMaxLength }}
+      </div>
     </div>
   </div>
 </div>
