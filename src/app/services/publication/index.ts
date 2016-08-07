@@ -31,7 +31,7 @@ export class PublicationService {
   }
 
   getTopPublication(): Observable<Publication> {
-    return this.http.get(this.publicationUri.concat('/3'))
+    return this.http.get(this.publicationUri.concat('/1'))
             .map(res => res.json());
   }
 
@@ -49,6 +49,15 @@ export class PublicationService {
     let likeEndpoint = '/' + p.id;
 
     return this.http.delete(this.likeUri.concat(likeEndpoint))
+            .map(res => res.json());
+  }
+
+  newPublication(p: Publication): Observable<Publication> {
+    let body = JSON.stringify(p);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.publicationUri, body, options)
             .map(res => res.json());
   }
 }

@@ -143,6 +143,58 @@
       "like": "12500",
       "view": "0",
       "has_like": "false"
+    },
+    {
+      "type": "IMAGE",
+      "title": "lol",
+      "description": "lol bonjour",
+      "file": "lol.jpg",
+      "author": "Maurice",
+      "id": 13
+    },
+    {
+      "type": "IMAGE",
+      "title": "lol",
+      "description": "ceci est un test",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 14
+    },
+    {
+      "type": "IMAGE",
+      "title": "lol",
+      "description": "fqfq",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 15
+    },
+    {
+      "type": "IMAGE",
+      "title": "jdjkfjdq ljfldqm f",
+      "description": "fdf ljqklmdfj mkldfj mlkqsjdf kl",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 16
+    },
+    {
+      "type": "IMAGE",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 17
+    },
+    {
+      "type": "IMAGE",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 18
+    },
+    {
+      "type": "IMAGE",
+      "title": "fdqfqdf",
+      "description": "",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 19
     }
   ],
   "likes": [
@@ -155,6 +207,16 @@
       "publication_id": 9,
       "user_id": 42,
       "id": 11
+    },
+    {
+      "publication_id": 13,
+      "user_id": 42,
+      "id": 12
+    },
+    {
+      "publication_id": 14,
+      "user_id": 42,
+      "id": 13
     }
   ]
 }
