@@ -1,8 +1,9 @@
 /* beautify ignore:start */
 import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass, NgStyle} from '@angular/common';
 import {PublicationService} from '../../services/publication';
 import {DialogRef, ModalComponent} from 'angular2-modal';
-import {FileUploader} from 'ng2-file-upload';
+import {FILE_UPLOAD_DIRECTIVES, FileUploader} from 'ng2-file-upload';
 import {BSModalContext} from 'angular2-modal/plugins/bootstrap/index';
 /* beautify ignore:end */
 
@@ -15,6 +16,7 @@ export class ModalPublicationData extends BSModalContext {
 @Component({
   selector: 'modal-data',
   providers: [PublicationService],
+  directives: [FILE_UPLOAD_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES],
   styles: [require('./style.scss')],
   template: require('./template.html')
 })
@@ -24,16 +26,20 @@ export class ModalPublicationFormComponent implements ModalComponent<ModalPublic
   uploadedFile: string;
   publication: any;
   preview: any;
+  isSelected: boolean;
 
   constructor(public dialog: DialogRef<ModalPublicationData>,
-    public publiService: PublicationService) {
+                public publiService: PublicationService) {
     this.context = dialog.context;
     this.publication = {
-      type: 'IMAGE',
-      title: 'lol'
+      type: 'IMAGE'
     };
-    this.file = this.context.uploader.queue[0];
-    this.buildPreview();
+    this.isSelected = false;
+
+    if(this.context.uploader.queue[0]) {
+      this.file = this.context.uploader.queue[0]._file;
+      this.buildPreview();
+    }
   }
 
   newPublication(): void {
@@ -48,8 +54,15 @@ export class ModalPublicationFormComponent implements ModalComponent<ModalPublic
       );
   }
 
+  onSelectFile(el: any): void {
+    if(el.files[0]) {
+      this.isSelected = true;
+      this.file = el.files[0];
+      this.buildPreview();
+    }
+  }
+
   onClose(): void {
-    console.log(this.context.resetUploader());
     this.context.resetUploader();
     this.dialog.close();
   }
@@ -68,6 +81,6 @@ export class ModalPublicationFormComponent implements ModalComponent<ModalPublic
     reader.onload = function(e) {
       that.preview = e.target;
     };
-    reader.readAsDataURL(this.file._file);
+    reader.readAsDataURL(this.file);
   }
 }

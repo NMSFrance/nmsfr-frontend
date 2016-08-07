@@ -21,12 +21,12 @@ export class UploaderComponent {
   }
 
   openModal() {
-    //this.modal
-    //  .open(ModalDataComponent, new ModalData('toto.jpg'));
+    let modal: ModalPublicationData = new ModalPublicationData(this.uploader, this.initUploader.bind(this));
+    this.modal.open(ModalPublicationFormComponent, modal);
   }
 
   onDrop(e: any): void {
-    this.modal.open(ModalPublicationFormComponent, new ModalPublicationData(this.uploader, this.initUploader));
+    this.openModal();
   }
 
   fileOverDrop(e: any): void {
@@ -36,7 +36,6 @@ export class UploaderComponent {
   initUploader(): void {
     this.uploader = new FileUploader({
       autoUpload: true,
-      removeAfterUpload: true,
       url: 'https://evening-anchorage-3159.herokuapp.com/api/'
     });
   }
