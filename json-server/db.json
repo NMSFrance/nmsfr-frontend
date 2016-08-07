@@ -143,6 +143,30 @@
       "like": "12500",
       "view": "0",
       "has_like": "false"
+    },
+    {
+      "type": "IMAGE",
+      "title": "lol",
+      "description": "lol bonjour",
+      "file": "lol.jpg",
+      "author": "Maurice",
+      "id": 13
+    },
+    {
+      "type": "IMAGE",
+      "title": "lol",
+      "description": "ceci est un test",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 14
+    },
+    {
+      "type": "IMAGE",
+      "title": "lol",
+      "description": "fqfq",
+      "file": "https://pixabay.com/static/uploads/photo/2013/01/29/01/02/google-76522_960_720.png",
+      "author": "Maurice",
+      "id": 15
     }
   ],
   "likes": [
@@ -155,6 +179,16 @@
       "publication_id": 9,
       "user_id": 42,
       "id": 11
+    },
+    {
+      "publication_id": 13,
+      "user_id": 42,
+      "id": 12
+    },
+    {
+      "publication_id": 14,
+      "user_id": 42,
+      "id": 13
     }
   ]
 }

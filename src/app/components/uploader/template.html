@@ -2,6 +2,7 @@
       ng2FileDrop
       [class.file-over]="hasDropZoneOver"
       (fileOver)="fileOverDrop($event)"
+      (drop)="onDrop($event)"
       [uploader]="uploader">
   <i class="glyphicon glyphicon-plus-sign"></i>
   <h3>glisser déposer</h3>

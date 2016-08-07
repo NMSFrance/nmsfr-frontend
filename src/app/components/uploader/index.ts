@@ -16,7 +16,7 @@ export class UploaderComponent {
   uploader: FileUploader;
 
   constructor(public modal: Modal) {
-    this.uploader = new FileUploader({url: 'https://evening-anchorage-3159.herokuapp.com/api/'});
+    this.initUploader();
     this.hasDropZoneOver = false;
   }
 
@@ -25,10 +25,19 @@ export class UploaderComponent {
     //  .open(ModalDataComponent, new ModalData('toto.jpg'));
   }
 
+  onDrop(e: any): void {
+    this.modal.open(ModalPublicationFormComponent, new ModalPublicationData(this.uploader, this.initUploader));
+  }
+
   fileOverDrop(e: any): void {
     this.hasDropZoneOver = e;
-    if(this.uploader.queue.length > 0) {
-      this.modal.open(ModalPublicationFormComponent, new ModalPublicationData(this.uploader));
-    }
+  }
+
+  initUploader(): void {
+    this.uploader = new FileUploader({
+      autoUpload: true,
+      removeAfterUpload: true,
+      url: 'https://evening-anchorage-3159.herokuapp.com/api/'
+    });
   }
 }
