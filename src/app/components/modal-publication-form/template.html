@@ -20,6 +20,7 @@
     </div>
     <div id="modal-form" class="col-md-6 form-group">
       <input  class="form-control"
+              type="text"
               placeholder="Titre de ton rapport"
               [(ngModel)]="publication.title"
               charhunter
@@ -43,7 +44,7 @@
 </div>
 <div id="modal-buttons" class="row">
   <div class="col-md-12 text-right">
-    <button type="submit" class="btn btn-primary" (click)="newPublication()">Envoyer le rapport</button>
-    <button class="btn btn-danger" (click)="onClose()">Annuler</button>
+    <button type="submit" class="btn base btn-primary" (click)="newPublication()" [disabled]="!isValid()">Envoyer le rapport</button>
+    <button class="btn base btn-danger" (click)="onClose()">Annuler</button>
   </div>
 </div>

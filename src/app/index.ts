@@ -1,5 +1,5 @@
 /// src/app/index.ts
-import {Component, ViewContainerRef} from '@angular/core';
+import {Component, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {FORM_PROVIDERS} from '@angular/common';
 import {UploaderComponent} from './components/uploader';
@@ -20,7 +20,8 @@ import routes from './routes';
     viewProviders: [...BS_MODAL_PROVIDERS],
     pipes: [],
     styles: [require('./style.scss')],
-    template: require('./template.html')
+    template: require('./template.html'),
+    encapsulation: ViewEncapsulation.None
 })
 
 @RouteConfig(routes)

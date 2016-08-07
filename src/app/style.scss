@@ -7,6 +7,53 @@
   font-style: normal;
 }
 
+/**
+ * Override Bootstrap classes
+ */
+.btn {
+  border-radius: 0;
+  &:focus {
+    border: none;
+    box-shadow: none;
+    outline: 0 none;
+  }
+  &.btn-primary {
+    background-color: $color-active;
+    border: 1px solid darken($color-active, 10%);
+    &:active,
+    &:hover {
+      background-color: darken($color-active, 10%);
+    }
+  }
+  &.btn-danger {
+    background-color: $color-inactive;
+    border: 1px solid darken($color-inactive, 10%);
+    &:active,
+    &:hover {
+      background-color: darken($color-inactive, 10%);
+    }
+  }
+  &.base {
+    width: 150px;
+  }
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active {
+    background-color: white;
+    color: darken($color-inactive, 10%);
+    border: 1px solid darken($color-inactive, 10%);
+  }
+}
+
+input[type="text"],
+textarea {
+  border-radius: 0 !important;
+  &:focus {
+    border: 1px solid $color-active !important;
+    box-shadow: none !important;
+  }
+}
+
 // styles applied on :host are applied on the current component, "app" in this case
 :host {
   display: flex;
@@ -26,7 +73,7 @@ header {
 
 main {
   padding-top: $size-header-height;
-  margin-top: 15px;
+  margin: 0;
 }
 
 footer {

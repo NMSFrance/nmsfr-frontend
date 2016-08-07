@@ -61,6 +61,14 @@ export class ModalPublicationFormComponent implements ModalComponent<ModalPublic
       );
   }
 
+  isValid(): boolean {
+    if(!this.file) return false;
+    if(typeof this.publication.title === 'undefined') return false;
+
+    return (this.publication.title.length > 3)
+      && (this.context.uploader.queue[0].isSuccess);
+  }
+
   onSelectFile(el: any): void {
     if(el.files[0]) {
       this.isSelected = true;
