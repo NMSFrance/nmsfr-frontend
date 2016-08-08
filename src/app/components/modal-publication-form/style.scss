@@ -1,7 +1,7 @@
 @import "../../../style/_variables";
 
 #modal {
-  padding: 15px;
+  padding: 25px;
   margin: 0;
   box-shadow: 0px 0px 5px #656565;
   input[type=file] {
@@ -10,14 +10,12 @@
   #modal-header {
     width: 100%;
     line-height: 45px;
-    padding: 5px;
     margin: 0;
     color: $color-active;
     margin-bottom: 10px;
   }
   #modal-preview {
-    margin: 0;
-    padding: 0;
+    margin-right: 0;
     img {
       width: 250px;
       height: auto;
@@ -34,7 +32,6 @@
     text-align: center;
   }
   #modal-form {
-    padding: 0;
     textarea {
       resize: none;
       height: 130px;

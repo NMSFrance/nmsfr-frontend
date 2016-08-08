@@ -36,20 +36,19 @@ export class PublicationService {
   }
 
   like(p: Publication): Observable<Publication> {
-    let body = JSON.stringify({ publication_id: p.id, user_id: 42 });
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    if(p.has_like) { // like
+      let body = JSON.stringify({ publication_id: p.id, user_id: 42 });
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.likeUri, body, options)
-            .map(res => res.json());
-  }
+      return this.http.post(this.likeUri, body, options)
+              .map(res => res.json());
+    } else { // dislike
+      let likeEndpoint = '/' + p.id;
 
-  unlike(p: Publication): Observable<Publication> {
-    // TODO let likeEndpoint = '/' + p.id + '/42';
-    let likeEndpoint = '/' + p.id;
-
-    return this.http.delete(this.likeUri.concat(likeEndpoint))
-            .map(res => res.json());
+      return this.http.delete(this.likeUri.concat(likeEndpoint))
+              .map(res => res.json());
+    }
   }
 
   newPublication(p: Publication): Observable<Publication> {

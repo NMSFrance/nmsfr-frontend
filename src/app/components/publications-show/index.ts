@@ -2,13 +2,15 @@ import {Component, OnInit} from '@angular/core';
 
 import {PublicationService} from '../../services/publication';
 import {Publication} from '../../interfaces/publication.interface';
+import {PublicationOverlayData, PublicationComponent} from '../publication-overlay';
 
 import {Pov} from './directives/pov.directive';
 import {InfiniteScroll} from 'angular2-infinite-scroll';
 import {SpinnerComponent} from '../spinner';
+import {Modal} from 'angular2-modal/plugins/bootstrap';
 
 @Component({
-  selector: 'home',
+  selector: 'publications',
   directives: [Pov, InfiniteScroll, SpinnerComponent],
   providers: [PublicationService],
   pipes: [],
@@ -16,12 +18,12 @@ import {SpinnerComponent} from '../spinner';
   template: require('./template.html')
 })
 
-export class Home implements OnInit {
+export class PublicationsComponent implements OnInit {
   publications: Publication[];
   topPublication: Publication;
   loading: boolean;
 
-  constructor(public publiService: PublicationService) {
+  constructor(public publiService: PublicationService, public modal: Modal) {
 
   }
 
@@ -36,24 +38,8 @@ export class Home implements OnInit {
       );
   }
 
-  likeAction(p: Publication) {
-    if(p.has_like) {
-      this.publiService.unlike(p)
-        .subscribe(
-          res => {
-            --p.like;
-            p.has_like = false;
-          }
-        );
-    } else {
-      this.publiService.like(p)
-        .subscribe(
-          res => {
-            ++p.like;
-            p.has_like = true;
-          }
-        );
-    }
+  onLike(p: Publication) {
+    this.publiService.like(p);
   }
 
   onScroll(): void {
@@ -68,6 +54,11 @@ export class Home implements OnInit {
         err => console.log(err),
         () => this.loading = false
       );
+  }
+
+  open(publication: Publication) {
+    let modalData: PublicationOverlayData = new PublicationOverlayData(publication);
+    this.modal.open(PublicationComponent, modalData);
   }
 
 }

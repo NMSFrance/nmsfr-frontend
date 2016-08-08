@@ -1,19 +1,23 @@
-<div id="modal" class="row">
-  <div class="col-md-12">
-    <h3 id="modal-header">Renseigne ta découverte !</h3>
-    <label *ngIf="!context.uploader.queue[0]" [hidden]="isSelected" class="btn btn-primary btn-file center-block select-button">
-      Sélectionne ta photographie
-      <input  (change)="onSelectFile($event.target)"
-              type="file"
-              ng2FileSelect
-              [uploader]="context.uploader" />
-    </label>
-    <p *ngIf="context.uploader.isUploading" class="message">
-      Rapport photographique en cours de transmission dans l'Atlas... {{ context.uploader.progress }}%
-    </p>
-    <p *ngIf="context.uploader.queue[0]?.isSuccess" class="message">
-      Rapport enregistré dans l'Atlas, merci de renseigner ta découverte
-    </p>
+<div id="modal">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 id="modal-header">Renseigne ta découverte !</h3>
+      <label *ngIf="!context.uploader.queue[0]" [hidden]="isSelected" class="btn btn-primary btn-file center-block select-button">
+        Sélectionne ta photographie
+        <input  (change)="onSelectFile($event.target)"
+                type="file"
+                ng2FileSelect
+                [uploader]="context.uploader" />
+      </label>
+      <p *ngIf="context.uploader.isUploading" class="message">
+        Rapport photographique en cours de transmission dans l'Atlas... {{ context.uploader.progress }}%
+      </p>
+      <p *ngIf="context.uploader.queue[0]?.isSuccess" class="message">
+        Rapport enregistré dans l'Atlas, merci de renseigner ta découverte
+      </p>
+    </div>
+  </div>
+  <div class="row">
     <div id="modal-preview" class="col-md-6">
       <img *ngIf="preview" src="{{ preview?.result }}" />
       <img *ngIf="!preview" src="img/placeholder.png" />
