@@ -1,2 +1,18 @@
-<div id="overlay">
+<div id="publication-view" [style.background-image]="'url(' + publication.file + ')'">
+  <img src="{{ publication.file }}" />
+  <div id="publication-content">
+    <h2 class="publication-header">{{ publication.title }}</h2>
+    <p class="publication-description" [hidden]="!publication.description">
+      {{ publication.description }}
+    </p>
+    <div class="publication-social">
+      <div class="like">
+        <i [class.active]="publication.has_like" (click)="onLike(publication)" class="glyphicon glyphicon-thumbs-up"></i>&nbsp;{{ publication.like }}
+      </div>
+      <div class="view">
+        <i class="glyphicon glyphicon-eye-open"></i>&nbsp;{{ publication.view }}&nbsp;vues
+      </div>
+    </div>
+    <i class="glyphicon glyphicon-remove publication-close" (click)="onClose()"></i>
+  </div>
 </div>

@@ -21,8 +21,8 @@ export class DropboxComponent {
   }
 
   openModal() {
-    let modal: ModalPublicationData = new ModalPublicationData(this.uploader, this.initUploader.bind(this));
-    this.modal.open(ModalPublicationFormComponent, modal);
+    let modalData: ModalPublicationData = new ModalPublicationData(this.uploader, this.initUploader.bind(this));
+    this.modal.open(ModalPublicationFormComponent, modalData);
   }
 
   onDrop(e: any): void {
