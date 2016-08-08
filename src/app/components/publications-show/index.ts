@@ -8,7 +8,7 @@ import {InfiniteScroll} from 'angular2-infinite-scroll';
 import {SpinnerComponent} from '../spinner';
 
 @Component({
-  selector: 'home',
+  selector: 'publications',
   directives: [Pov, InfiniteScroll, SpinnerComponent],
   providers: [PublicationService],
   pipes: [],
@@ -16,7 +16,7 @@ import {SpinnerComponent} from '../spinner';
   template: require('./template.html')
 })
 
-export class Home implements OnInit {
+export class PublicationsComponent implements OnInit {
   publications: Publication[];
   topPublication: Publication;
   loading: boolean;
@@ -68,6 +68,10 @@ export class Home implements OnInit {
         err => console.log(err),
         () => this.loading = false
       );
+  }
+
+  open(publication: Publication) {
+    console.log(publication);
   }
 
 }

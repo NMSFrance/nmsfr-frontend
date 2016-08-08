@@ -6,12 +6,12 @@ import {ModalPublicationFormComponent, ModalPublicationData} from '../modal-publ
 /* beautify ignore:end */
 
 @Component({
-    selector: 'uploader',
+    selector: 'dropbox',
     directives: [FILE_UPLOAD_DIRECTIVES],
     styles: [require('./style.scss')],
     template: require('./template.html')
 })
-export class UploaderComponent {
+export class DropboxComponent {
   hasDropZoneOver: boolean = false;
   uploader: FileUploader;
 

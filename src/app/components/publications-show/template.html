@@ -10,7 +10,7 @@
         pov >
   </div>
   <div class="publications">
-    <div *ngFor="let publication of publications" class="publication">
+    <div *ngFor="let publication of publications" (click)="open(publication)" class="publication">
       <div class="picture" [style.background-image]="'url(' + publication.file + ')'">
         <img src="{{ publication.file }}"/>
       </div>

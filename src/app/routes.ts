@@ -1,6 +1,6 @@
 // src/app/routes.ts
-import {Home} from './components/home';     // ./components/home/index.ts
+import {PublicationsComponent} from './components/publications-show';     // ./components/home/index.ts
 
 export default [
-    {path: '/', component: Home, name: 'Home'},
+    {path: '/', component: PublicationsComponent, name: 'Publications'},
 ];

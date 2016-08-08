@@ -1,5 +1,5 @@
 /* beautify ignore:start */
-import {Directive, ElementRef, Renderer, Input, Output, HostListener} from '@angular/core';
+import {Directive, ElementRef, Renderer, Input, HostListener} from '@angular/core';
 /* beautify ignore:end */
 
 @Directive({
