@@ -32,10 +32,11 @@
     text-align: center;
   }
   #modal-form {
+    .indicator {
+      text-align: right;
+    }
     textarea {
-      resize: none;
-      height: 130px;
-      margin-top: 35px;
+      margin-top: 10px;
     }
   }
 }
