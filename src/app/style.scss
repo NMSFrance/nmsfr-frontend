@@ -45,6 +45,45 @@
   }
 }
 
+input[type=email],
+input[type=text],
+input[type=password],
+textarea {
+  border-radius: 0;
+  min-width: 250px;
+  box-shadow: none;
+}
+
+input[type=email],
+input[type=text],
+input[type=password] {
+  line-height: 32px;
+  height: 38px;
+  border: none;
+  border-bottom: 1px solid #EEE;
+  padding-left: 5px;
+  &:focus,
+  &:active {
+    border-bottom: 1px solid darken($color-active, 10%);
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+textarea {
+  resize: none;
+  min-height: 130px;
+  border: 1px solid #EEE;
+  padding: 8px;
+  padding-left: 12px;
+  &:focus,
+  &:active {
+    border: 1px solid darken($color-active, 10%);
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
 .modal-dialog .modal-content {
   border-radius: 0;
 }
@@ -65,13 +104,11 @@
   }
 }
 
-input[type="text"],
-textarea {
-  border-radius: 0 !important;
-  &:focus {
-    border: 1px solid $color-active !important;
-    box-shadow: none !important;
-  }
+.center-global {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 // styles applied on :host are applied on the current component, "app" in this case

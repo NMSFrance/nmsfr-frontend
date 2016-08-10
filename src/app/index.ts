@@ -28,7 +28,10 @@ import routes from './routes';
 @RouteConfig(routes)
 
 export class App {
-  constructor(public modal: Modal, viewContainer: ViewContainerRef) {
+  constructor(
+    public modal: Modal,
+    public viewContainer: ViewContainerRef
+  ) {
     modal.defaultViewContainer = viewContainer;
   }
 }

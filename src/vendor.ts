@@ -20,3 +20,4 @@ import 'rxjs';
 import 'angular2-infinite-scroll';
 import 'angular2-modal';
 import 'ng2-file-upload';
+import 'angular2-jwt';
