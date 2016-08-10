@@ -226,5 +226,19 @@
       "user_id": 42,
       "id": 13
     }
+  ],
+  "users": [
+    {
+      "name": "Slals",
+      "password": "toto",
+      "email": "jonathan.serra@hotmail.fr",
+      "id": 1
+    },
+    {
+      "name": "Sol",
+      "password": "toto",
+      "email": "jonathan.serra@hotmail.fr",
+      "id": 2
+    }
   ]
 }
