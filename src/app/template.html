@@ -1,6 +1,6 @@
-<header [hidden]="!isInApp()">
+<header *ngIf="isInApp()">
   <dropbox></dropbox>
 </header>
-<main class="container">
+<main class="container" [class.fullpage]="!isInApp()">
   <router-outlet></router-outlet>
 </main>
