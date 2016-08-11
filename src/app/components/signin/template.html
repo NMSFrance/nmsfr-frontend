@@ -3,8 +3,10 @@
     <form role="form">
       <input type="text" class="form-control" [(ngModel)]="login" placeholder="Adresse e-mail ou pseudonyme" required />
       <input type="password" class="form-control" [(ngModel)]="password" placeholder="Mot de passe" required />
-      <button class="btn btn-primary" (click)="connect()">Se connecter</button>
-      <a [routerLink]="['Signup']">S'enregistrer</a>
+      <div class="button-pane">
+        <button class="btn btn-primary" (click)="connect()">Se connecter</button>
+        <a [routerLink]="['Signup']">S'enregistrer</a>
+      </div>
     </form>
   </div>
 </div>

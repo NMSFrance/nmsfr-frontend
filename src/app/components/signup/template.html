@@ -5,8 +5,10 @@
       <input type="email" class="form-control" [(ngModel)]="user.email" placeholder="Adresse e-mail" required />
       <input type="password" class="form-control" [(ngModel)]="user.password" placeholder="Mot de passe" required />
       <input type="password" class="form-control" [(ngModel)]="rePassword" placeholder="Mot de passe de nouveau" required />
-      <button class="btn btn-primary" (click)="submit()" [disabled]="!isFormValid()">S'enregistrer</button>
-      <a [routerLink]="['Signin']">Se connecter</a>
+      <div class="button-pane">
+        <button class="btn btn-primary" (click)="submit()" [disabled]="!isFormValid()">S'enregistrer</button>
+        <a [routerLink]="['Signin']">Se connecter</a>
+      </div>
     </form>
   </div>
 </div>
