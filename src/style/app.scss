@@ -8,3 +8,87 @@ html, body {
   background-color: $color-base;
   height: 100%;
 }
+
+.center-global {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/**
+ * Override Bootstrap classes
+ */
+.btn {
+  border-radius: 0;
+  &:focus {
+    border: none;
+    box-shadow: none;
+    outline: 0 none;
+  }
+  &.btn-primary {
+    background-color: $color-active;
+    border: 1px solid darken($color-active, 10%);
+    &:active,
+    &:hover {
+      background-color: darken($color-active, 10%);
+    }
+  }
+  &.btn-danger {
+    background-color: $color-inactive;
+    border: 1px solid darken($color-inactive, 10%);
+    &:active,
+    &:hover {
+      background-color: darken($color-inactive, 10%);
+    }
+  }
+  &.base {
+    width: 150px;
+  }
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active {
+    background-color: white;
+    color: darken($color-inactive, 10%);
+    border: 1px solid darken($color-inactive, 10%);
+  }
+}
+
+input[type=email],
+input[type=text],
+input[type=password],
+textarea {
+  border-radius: 0;
+  min-width: 250px;
+  box-shadow: none;
+}
+
+input[type=email],
+input[type=text],
+input[type=password] {
+  line-height: 32px;
+  height: 38px;
+  border: none;
+  border-bottom: 1px solid #EEE;
+  padding-left: 5px;
+  &:focus,
+  &:active {
+    border-bottom: 1px solid darken($color-active, 10%);
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+textarea {
+  resize: none;
+  min-height: 130px;
+  border: 1px solid #EEE;
+  padding: 8px;
+  padding-left: 12px;
+  &:focus,
+  &:active {
+    border: 1px solid darken($color-active, 10%);
+    box-shadow: none;
+    outline: 0;
+  }
+}
