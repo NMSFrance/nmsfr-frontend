@@ -3,7 +3,10 @@
   input {
     margin-top: 7px;
   }
-  button {
+  .button-pane {
     margin-top: 30px;
+    button {
+      margin-right: 15px;
+    }
   }
 }
