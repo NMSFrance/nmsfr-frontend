@@ -3,6 +3,7 @@ import {Component} from '@angular/core';
 import {UserService} from '../../services/user';
 import {User} from '../../interfaces/user.interface';
 import {ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
+import {FormBuilder, Validators, ControlGroup} from '@angular/common';
 /* beautify ignore:end */
 
 @Component({
@@ -13,33 +14,58 @@ import {ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
   template: require('./template.html')
 })
 export class SignupComponent {
-  user: User;
+  form: ControlGroup;
   rePassword: string;
 
-  constructor(public userService: UserService, public router: Router) {
-    this.user = {
-      name: '',
-      password: '',
-      email: ''
+  constructor(public userService: UserService, public router: Router, public fb: FormBuilder) {
+    this.form = fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      matchingPasswords: fb.group({
+        password: ['', Validators.required],
+        rePassword: ['', Validators.required]
+      }, {validator: this.isPasswordMatch})
+    });
+  }
+
+  create(event: any): void {
+    if(!this.form.valid) return;
+    let user: User = {
+      name: this.form.value.name,
+      email: this.form.value.email,
+      password: this.form.value.password
     };
+
+    this.userService.newUser(user)
+      .subscribe(
+        res => {
+          this.router.navigate(['Signin']);
+        }
+      );
+    event.preventDefault();
   }
 
-  isFormValid(): boolean {
-    return (this.user.name)
-      && (this.user.password)
-      && (this.user.email)
-      && (this.rePassword)
-      && (this.rePassword === this.user.password);
-  }
+  isPasswordMatch(grp: ControlGroup) {
+    let val;
+    let valid = true;
 
-  submit(): void {
-    if(this.isFormValid()) {
-      this.userService.newUser(this.user)
-        .subscribe(
-          res => {
-            this.router.navigate(['Signin']);
-          }
-        );
+    for (name in grp.controls) {
+      if (val === undefined) {
+        val = grp.controls[name].value
+      } else {
+        if (val !== grp.controls[name].value) {
+          valid = false;
+          break;
+        }
+      }
     }
+
+    if (valid) {
+      return null;
+    }
+
+    return {
+      isMatch: true
+    };
   }
 }

@@ -1,12 +1,14 @@
 <div class="center-global">
   <div class="signup-form">
-    <form role="form">
-      <input type="text" class="form-control" [(ngModel)]="user.name" placeholder="Pseudonyme" required />
-      <input type="email" class="form-control" [(ngModel)]="user.email" placeholder="Adresse e-mail" required />
-      <input type="password" class="form-control" [(ngModel)]="user.password" placeholder="Mot de passe" required />
-      <input type="password" class="form-control" [(ngModel)]="rePassword" placeholder="Mot de passe de nouveau" required />
+    <form role="form" [ngFormModel]="form" (submit)="create($event)">
+      <input type="text" class="form-control" ngControl="name" placeholder="Pseudonyme" required />
+      <input type="email" class="form-control" ngControl="email" placeholder="Adresse e-mail" required />
+      <div ngControlGroup="matchingPasswords">
+        <input type="password" class="form-control" ngControl="password" placeholder="Mot de passe" required />
+        <input type="password" class="form-control" ngControl="rePassword" placeholder="Mot de passe de nouveau" required />
+      </div>
       <div class="button-pane">
-        <button class="btn btn-primary" (click)="submit()" [disabled]="!isFormValid()">S'enregistrer</button>
+        <button class="btn btn-primary" type="submit">S'enregistrer</button>
         <a [routerLink]="['Signin']">Se connecter</a>
       </div>
     </form>

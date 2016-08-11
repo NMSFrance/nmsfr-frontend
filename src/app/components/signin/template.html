@@ -1,10 +1,10 @@
 <div class="center-global">
   <div class="signin-form">
-    <form role="form">
-      <input type="text" class="form-control" [(ngModel)]="login" placeholder="Adresse e-mail ou pseudonyme" required />
-      <input type="password" class="form-control" [(ngModel)]="password" placeholder="Mot de passe" required />
+    <form role="form" [ngFormModel]="form" (submit)="signin($event)">
+      <input type="text" class="form-control" ngControl="login" placeholder="Adresse e-mail ou pseudonyme" required />
+      <input type="password" class="form-control" ngControl="password" placeholder="Mot de passe" required />
       <div class="button-pane">
-        <button class="btn btn-primary" (click)="connect()">Se connecter</button>
+        <button class="btn btn-primary" type="submit">Se connecter</button>
         <a [routerLink]="['Signup']">S'enregistrer</a>
       </div>
     </form>
